@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>York-Simcoe — Sex Trafficking Screener (YST) </title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Serif:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{
+      --yu-red:#E31837;
+      --teal:#8FD0D1;
+      --teal-dark:#1A8083;
+      --ink:#121212;
+      --ink-2:#3d3835;
+      --muted:#6A6662;
+      --cream:#f0f0f0;
+      --line:#E9E3DE;
+      --panel:#FFFFFF;
+
+      --fs-hero:clamp(40px, 3vw + 28px, 64px);
+      --fs-h2:clamp(28px, 1.2vw + 20px, 40px);
+      --fs-h3:20px;
+      --fs-body:16px;
+
+      --s-1:8px; --s-2:12px; --s-3:16px; --s-4:20px; --s-5:24px;
+      --s-6:28px; --s-7:32px; --s-8:40px; --s-9:48px; --s-10:56px; --s-11:64px; --s-12:80px;
+
+      --container: min(1120px, 92vw);
+      --shadow:0 12px 30px rgba(0,0,0,.10);
+    
+      --radius-lg:20px;
+      --radius-md:12px;
+      --radius-sm:8px;
+      --shadow-sm:0 2px 6px rgba(0,0,0,.08);
+      --shadow-md:0 10px 30px rgba(0,0,0,.12);
+      --yu-red-soft:#F04C5A;
+    }
+    
+    html{scroll-behavior:smooth}
+    /* Anchor offset so sticky header doesn't cover targets */
+    section[id], [data-anchor] {scroll-margin-top: 96px}
+*{box-sizing:border-box}
+    body{margin:0; font:400 var(--fs-body)/1.55 "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; color:var(--ink); background:#fff;}
+    a{color:#0B6F76; text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{width:var(--container); margin:0 auto; padding:0 var(--s-7);}
+
+    /* Header */
+    .topbar{height:84px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); background:#fff; position:sticky; top:0; z-index:5}
+
+/* Improved logo styling */
+.topbar .logo{
+  text-decoration:none;
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  
+  font-size:clamp(16px,2vw,20px);
+  white-space:nowrap;
+}
+.topbar .logo .sep{opacity:.45}
+.topbar .logo .brand{}
+
+    .logo img{height:40px; display:block}
+    nav{display:flex; gap:32px; font-size:15px} nav a{color:#353232}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns: 560px 1fr; gap:var(--s-10); align-items:center; padding: var(--s-10) 0 var(--s-10); background:#fff}
+    .eyebrow{font:600 20px/1 "IBM Plex Sans",sans-serif; color:var(--yu-red); margin-bottom:var(--s-2)}
+    .title{font:700 var(--fs-hero)/1.06 "IBM Plex Serif", Georgia, serif; letter-spacing:-.2px; margin:0 0 var(--s-3); text-decoration: underline #0B66C1 4px; text-underline-offset:6px; text-decoration-skip-ink:none;}
+    .subtitle{color:var(--muted); max-width:520px; margin:0 0 var(--s-6)}
+    .cta-card{display:inline-flex; flex-direction:column; align-items:center; gap:8px; padding:12px; border-radius:16px; background:var(--cream); box-shadow:var(--shadow); border-radius:var(--radius-lg);}
+    .btn-primary{display:block; min-width:200px; text-align:center; background:var(--yu-red); color:#fff; border-radius:18px; height:44px; padding:0 22px; font:600 15px/44px "IBM Plex Sans",sans-serif; border:0; box-shadow:0 6px 14px rgba(227,24,55,.25);}
+    .cta-note{font-size:13px; color:#3a3735} .cta-note strong{ color:#000}
+    .hero-media{position:relative}
+    .hero-img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius: var(--radius-lg); display:block; filter:brightness(.7);}
+    .callout{position:absolute; left:-30px; top: auto; bottom: 40px; width:300px; background: var(--teal); color: var(--ink); border-radius: var(--radius-lg); padding: 14px; box-shadow: var(--shadow-md); font-size:15px; line-height:1.35;}
+    .callout b{display:block; margin-bottom:6px}
+
+    /* Trust bar */
+    .trust{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#f0f0f0;}
+    .trust .row{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px 28px; padding:14px 0; font-size:.98rem; color:#3a3735}
+    .metric{display:flex; align-items:center; gap:10px}
+    .metric svg{width:20px; height:20px; flex:0 0 20px}
+
+    
+/* HOW: three-tile row */
+#how.how2{background:#2F3E46; color:#fff; padding:64px 0 72px}
+#how.how2 h2{
+  font: 700 var(--fs-h2)/1.06 "IBM Plex Serif", Georgia, serif;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 28px;
+}
+.tiles{display:flex; gap:22px; justify-content:center; align-items:stretch; flex-wrap:nowrap}
+.tile-dark{display:flex; gap:14px; align-items:flex-start; width:33%; min-width:280px;
+  background:#3A4A51; border:1px solid rgba(255,255,255,.14); border-radius:18px;
+  padding:18px 18px 16px; box-shadow:0 18px 40px rgba(0,0,0,.22) border-radius:var(--radius-lg);}
+.tile-dark h3{margin:2px 0 6px; font:600 var(--fs-h3)/1.25 "IBM Plex Sans"; color:#fff}
+.tile-dark p{margin:0; color:rgba(255,255,255,.82)}
+.icon{flex:0 0 32px; width:32px; height:32px; border-radius:10px; display:grid; place-items:center;
+  background:rgba(227,24,55,.16); border:1px solid rgba(227,24,55,.35)}
+.icon svg{width:18px; height:18px; color:#fff}
+@media (max-width: 980px){
+  .tiles{flex-wrap:wrap}
+  .tile-dark{width:100% border-radius:var(--radius-lg);}
+}
+
+    /* FAQ */
+    .faq-section{background:var(--cream); padding: var(--s-12) 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+    .faq-grid{display:grid; grid-template-columns: 1fr 1fr; gap:var(--s-10); align-items:start;}
+    .faq-left h2{font:700 var(--fs-h2)/1.06 "IBM Plex Serif",Georgia,serif; margin:0 0 var(--s-4);}
+    .faq-left p{color:var(--muted); margin:0 0 var(--s-5)}
+    .pills{display:grid; grid-template-columns:1fr 1fr; gap:14px; align-content:start; padding-top:8px}
+    .pill{appearance:none; -webkit-appearance:none; border:1px solid var(--line); background:#fff;padding:14px 18px; border-radius:16px; min-height:52px;font:500 16px/1.2 "IBM Plex Sans"; color:var(--ink-2); text-align:center; cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.04); transition:background .2s, color .2s, border-color .2s, box-shadow .2s, transform .02s border-radius:var(--radius-lg);}
+    .pill.is-active{background: #111; color:#fff; border-color: #111; box-shadow:0 6px 16px rgba(17,17,17,.2)}
+    .qa{border-top:1px solid var(--line)}
+    .qa:first-child{border-top:none}
+    .qa-header{width:100%; padding:16px 0; background:transparent; border:0; cursor:pointer; display:flex; justify-content:space-between; align-items:center}
+    .qa-title{margin:0; font:500 var(--fs-h3)/1.2 "IBM Plex Sans"}
+    .qa-ind::after{content:"+"} .qa[aria-expanded="true"] .qa-ind::after{content:"–"}
+    .qa-panel{display:none; color:var(--muted); padding:0 0 16px 0 border-radius:var(--radius-lg);} .qa[aria-expanded="true"] .qa-panel{display:block border-radius:var(--radius-lg);}
+
+    /* Resources */
+    .resources{padding: var(--s-12) 0; background:#fff}
+    .resources h2{font:700 var(--fs-h2)/1.06 "IBM Plex Serif", Georgia, serif; margin:0 0 var(--s-6);}
+    .card-row{display:grid; grid-template-columns: repeat(4, 1fr); gap:22px}
+    .res-card{border-radius:22px; overflow:hidden; background:#fff; display:flex; flex-direction:column; min-height:280px; border:1px solid #f0f0f0;}
+    .res-media{height:150px; background:#f0f0f0}
+    .res-body{padding:14px 16px 18px; display:flex; flex-direction:column; gap:10px}
+    .res-title{font:600 var(--fs-body)/1.25 "IBM Plex Sans", sans-serif}
+    .res-cta{margin-top:auto} .res-cta a{display:inline-block; background:#f0f0f0; padding:10px 12px; border-radius:12px}
+
+    footer{height:80px; background:#fff}
+
+    /* Responsive */
+    @media (max-width: 1100px){
+      .hero{grid-template-columns:1fr; gap:var(--s-8)}
+      .callout{position:static; width:auto; margin-top:-24px}
+      .faq-grid{grid-template-columns:1fr}
+      .card-row{grid-template-columns:repeat(2, 1fr)}
+      #how.how2 .grid{grid-template-columns:1fr}
+      .timeline{padding-left:30px}
+    }
+    @media (max-width: 560px){
+      .wrap{padding:0 var(--s-4)}
+      .pills{display:grid; grid-template-columns:1fr 1fr; gap:14px; align-content:start; padding-top:8px}
+      .card-row{grid-template-columns:1fr}
+    }
+  
+/* === Mobile hero fixes (non-desktop; preserves desktop layout) === */
+@media (max-width: 1100px){
+  /* Center hero content on mobile */
+  .hero > section:first-child{
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .subtitle{max-width:unset}
+
+  /* Ensure comfortable top/bottom spacing on mobile */
+  .hero{padding: var(--s-11) 0 var(--s-11)}
+
+  /* Keep the teal callout overlayed on the image and sized nicely */
+  .hero-media{position:relative}
+  .callout{
+    position:absolute;
+    top:auto;
+    bottom:14px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(86%, 420px);
+    margin-top:0; /* override previous mobile static layout */
+  }
+}
+
+/* Tighter phones: a bit more breathing room */
+@media (max-width: 560px){
+  .hero{padding: var(--s-12) 0 var(--s-12)}
+  .title{word-break:break-word}
+  .btn-primary{min-width:0; width:100%}
+}
+
+  
+.topbar .logo .brand{
+  color:#353232;
+  font-size:15px;
+  font-family:"IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight:400;
+}
+
+@media (max-width: 768px){
+  .topbar nav{display:none;}
+  .topbar{
+    justify-content:center;
+  }
+}
+
+.pill:hover{border-color:#f0f0f0; box-shadow:0 2px 6px rgba(0,0,0,.06)}
+.pill:focus-visible{outline:2px solid var(--yu-red); outline-offset:2px}
+.pill:active{transform:translateY(1px)}
+@media (max-width: 740px){
+  .pills{grid-template-columns:1fr}
+}
+
+.tile, .tile-dark, .cta-card{ box-shadow: var(--shadow-sm); transition: box-shadow .2s, transform .02s }
+.tile:hover, .tile-dark:hover, .cta-card:hover{ box-shadow: var(--shadow-md) }
+
+p{ line-height:1.75 }
+h2{ font-weight:600 }
+h3{ font-weight:600 }
+
+a, button{ transition: color .2s ease, background .2s ease, border-color .2s ease, transform .02s }
+.tile:hover{ transform: translateY(-1px) }
+
+@media (max-width: 740px){
+  .wrap.hero{ grid-template-columns:1fr; gap: var(--s-6); align-items:start }
+  .hero-media{ order: 2 }
+  .hero-img{ width:100%; border-radius:14px; aspect-ratio:auto; filter:brightness(.8) }
+}
+
+/* Expandable resources */
+.res-actions{display:flex; justify-content:center; margin-top:24px}
+.btn-outline{
+  appearance:none; -webkit-appearance:none;
+  padding:12px 16px; border-radius:999px;
+  border:1px solid var(--line); background:#fff; color:#161311;
+  font:500 15px/1 "IBM Plex Sans"; cursor:pointer;
+  box-shadow:0 1px 0 rgba(0,0,0,.04);
+  transition:background .2s, border-color .2s, transform .02s, box-shadow .2s;
+}
+.btn-outline:hover{border-color:#f0f0f0; box-shadow:var(--shadow-sm)}
+.btn-outline:active{transform:translateY(1px)}
+.btn-outline:focus-visible{outline:2px solid var(--yu-red); outline-offset:2px}
+@media (max-width: 960px){
+  .card-row{grid-template-columns: repeat(2,1fr)}
+}
+@media (max-width: 540px){
+  .card-row{grid-template-columns: 1fr}
+}
+
+[hidden]{display:none !important}
+
+/* Resources grid spacing consistency */
+section#resources .card-row{gap:22px; margin-top:16px}
+section#resources .card-row + .card-row{margin-top:22px}
+.res-actions{display:flex; justify-content:center; margin-top:24px}
+
+[hidden]{display:none !important}
+
+/* Linked hero callout tile */
+
+.callout.callout-link:hover{ box-shadow: var(--shadow-md); transform: translateY(-1px) }
+.callout-cta{
+  margin-top:14px;
+  display:inline-block;
+  background: var(--teal-dark);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font:500 15px/1 "IBM Plex Sans";
+  box-shadow: 0 1px 0 rgba(0,0,0,.05);
+  transition: background .2s ease, transform .02s ease, box-shadow .2s ease;
+}
+.callout-cta:hover{ background:#146b6e; box-shadow: var(--shadow-sm) }
+.callout-cta:active{ transform: translateY(1px) }
+
+/* Linked hero callout tile — refined to match site tokens */
+.callout.callout-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  /* keep positioning and sizing from .callout */
+}
+.callout.callout-link:hover{ box-shadow: var(--shadow-md) }
+.callout.callout-link:focus-visible{ outline:2px solid var(--yu-red); outline-offset:3px; border-radius:var(--radius-lg) }
+.callout-cta{
+  margin-top:10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background: var(--teal-dark);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font:500 15px/1 "IBM Plex Sans";
+  box-shadow: 0 1px 0 rgba(0,0,0,.05);
+  transition: background .2s ease, box-shadow .2s ease;
+}
+.callout-cta:hover{ background:#146b6e; box-shadow: var(--shadow-sm) }
+
+.callout-content{display:flex; flex-direction:column; gap:12px}
+.callout-title b{display:block; font-weight:700; margin:0}
+.callout-text{color:var(--ink-2)}
+.callout-btn{display:inline-flex; align-items:center; justify-content:center; margin-top:4px}
+.callout.callout-link:hover{box-shadow: var(--shadow-md)}
+
+/* Hero teal callout: unified sentence + teal CTA */
+.callout-content{display:flex; flex-direction:column; gap:10px}
+.callout-line{margin:0; font:400 16px/1.35 "IBM Plex Sans"; color:var(--ink)}
+.callout-line b{font-weight:700}
+.btn-teal{
+  display:inline-flex; align-items:center; justify-content:center;
+  background: var(--teal-dark); color:#fff; padding:10px 14px;
+  border-radius:999px; font:500 15px/1 "IBM Plex Sans";
+  box-shadow: 0 1px 0 rgba(0,0,0,.05); text-decoration:none;
+  transition: background .2s ease, box-shadow .2s ease, transform .02s ease;
+}
+.btn-teal:hover{ background:#146b6e; box-shadow: var(--shadow-sm) }
+.btn-teal:active{ transform: translateY(1px) }
+
+/* Hero teal callout styled like the 'Contact us' card (same behavior, teal scheme, refined) */
+.callout.callout-card {
+  background: var(--teal);
+  color: var(--ink);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+@media (hover:hover) and (pointer:fine) {
+  .callout.callout-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    transform: none;
+  }
+}
+.callout.callout-card .callout-line { margin: 0 0 10px 0 }
+.callout.callout-card .btn-teal { display: inline-flex }
+
+
+/* --- Mobile/touch: neutralize hover/active to prevent jump --- */
+@media (hover:none), (pointer:coarse) {
+  .callout.callout-card,
+  .callout.callout-card * {
+    transition: none !important;
+    transform: none !important;
+  }
+  .callout.callout-card:hover,
+  .callout.callout-card:active,
+  .callout.callout-card:focus-within {
+    box-shadow: 0 4px 12px rgba(0,0,0,.15) !important;
+    transform: none !important;
+  }
+  /* Buttons/links inside card */
+  .callout.callout-card .callout-btn,
+  .callout.callout-card .callout-btn:hover,
+  .callout.callout-card .callout-btn:active {
+    transition: background-color .15s ease, opacity .15s ease !important;
+    transform: none !important;
+  }
+}
+/* Extra safety: override any global hover lift for callouts on desktop too */
+.callout.callout-card:hover { transform: none !important; }
+
+
+/* Hide hero image & turquoise callout on mobile only */
+@media (max-width: 768px){
+  .hero-media{ display:none !important; }
+}
+
+</style>
+</head>
+<body>
+<div data-anchor="" id="top"></div>
+<header class="wrap topbar">
+<a aria-label="Teen Relationships Lab" class="logo" href="#top"><img alt="York University" height="40" src="UB_Logos_2.png"/> <span class="sep">|</span> <span class="brand">Teen Relationships Lab</span></a>
+<nav>
+<a href="#how">How this tool works</a>
+<a href="#faq">FAQ</a>
+<a href="#resources">Resources</a>
+</nav>
+</header>
+<main class="wrap hero">
+<section>
+<div class="eyebrow">York Simcoe</div>
+<h1 class="title">Sex Trafficking<br/>Screener (YST)</h1>
+<p class="subtitle">A quick online tool to screen for youth sex trafficking risk.</p>
+<div class="cta-card">
+<a class="btn-primary" href="https://thiapranos.github.io/YST/" rel="noopener" target="_blank">Start Screening</a>
+<div class="cta-note"><strong>No data</strong> is ever saved</div>
+</div>
+</section>
+<section aria-label="Illustrative image" class="hero-media">
+<img alt="Silhouetted person in a dark room" class="hero-img" src="hero.jpg"/>
+<div aria-label="Learn more about domestic minor sex trafficking" class="callout callout-card" role="group"> <div class="callout-content"> <p class="callout-line">Workers in child welfare are often unsure if their youth were involved in sex trafficking.</p> <a class="btn-teal callout-btn" href="YST 1-Pager Judgements.pdf" rel="noopener" target="_blank">How we help</a> </div></div>
+</section>
+</main>
+<!-- Trust / privacy bar -->
+<section class="trust">
+<div class="wrap row">
+<div class="metric">
+<svg fill="none" height="20" stroke="currentColor" viewbox="0 0 24 24" width="20"><path d="M4 12l4 4 12-12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Built with Ontario child welfare partners</span>
+</div>
+<div class="metric">
+<svg fill="none" height="20" stroke="currentColor" viewbox="0 0 24 24" width="20"><circle cx="12" cy="12" r="9" stroke-width="2"></circle><path d="M8 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Evidence-based and field-tested</span>
+</div>
+<div class="metric">
+<svg fill="none" height="20" stroke="currentColor" viewbox="0 0 24 24" width="20"><rect height="14" rx="2" stroke-width="2" width="16" x="4" y="5"></rect><path d="M4 9h16" stroke-width="2"></path></svg>
+<span>No login or tracking</span>
+</div>
+<div class="metric">
+<svg fill="none" height="20" stroke="currentColor" viewbox="0 0 24 24" width="20"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6l7-4z" stroke-width="2"></path></svg>
+<span>Privacy-first by design</span>
+</div>
+</div>
+</section>
+<!-- NEW: How this tool works -->
+<!-- HOW: compact three-tile row -->
+<section class="how2" id="how">
+<div class="wrap">
+<h2>How the YST works</h2>
+<div class="tiles">
+<article class="tile-dark reveal">
+<div aria-hidden="true" class="icon">
+<svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<rect height="18" rx="2" stroke-width="2" width="10" x="7" y="3"></rect>
+<circle cx="12" cy="17" r="1"></circle>
+</svg>
+</div>
+<div class="tile-body">
+<h3>Fill the screener</h3>
+<p>Access the tool from your phone, tablet, or computer. Then, answer 32 questions using your current knowledge of the youth and your clinical judgement.</p>
+</div>
+</article>
+<article class="tile-dark reveal">
+<div aria-hidden="true" class="icon">
+<svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<rect height="16" rx="2" stroke-width="2" width="16" x="4" y="4"></rect>
+<path d="M8 9h8M8 13h5" stroke-width="2"></path>
+</svg>
+</div>
+<div class="tile-body">
+<h3>Receive risk assessment scores</h3>
+<p>Evaluates warning signs that indicate your youth is more susceptible to being lured and/or recruited and immediate warning signs that indicate the possibility of active involvement. </p>
+</div>
+</article>
+<article class="tile-dark reveal">
+<div aria-hidden="true" class="icon">
+<svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4" stroke-width="2"></path>
+<rect height="16" rx="2" stroke-width="2" width="16" x="4" y="4"></rect>
+</svg>
+</div>
+<div class="tile-body">
+<h3>Document and reassess over time</h3>
+<p>Record results clearly in the case file with attention to confidentiality. Re-screen during transitions or after drastic changes.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="faq-section" id="faq">
+<div class="wrap faq-grid">
+<div class="faq-left">
+<h2>Frequently asked questions</h2>
+<p>Everything you need to know about features, privacy, and empirical validation.</p>
+<div class="pills" role="tablist">
+<button aria-controls="tab-how" aria-selected="true" class="pill is-active" id="tab-how-btn" role="tab">What is the YST?</button>
+<button aria-controls="tab-who" aria-selected="false" class="pill" id="tab-who-btn" role="tab">Are there any special considerations?</button>
+<button aria-controls="tab-validate" aria-selected="false" class="pill" id="tab-validate-btn" role="tab">Is the YST a valid and reliable screener?</button>
+<button aria-controls="tab-secure" aria-selected="false" class="pill" id="tab-secure-btn" role="tab">Is the YST secure?</button>
+</div>
+</div>
+<div class="faq-right">
+<!-- Tab: What is the tool -->
+<div aria-labelledby="tab-how-btn" class="tab-panel" id="tab-how" role="tabpanel">
+<div aria-expanded="true" class="qa">
+<button aria-expanded="true" class="qa-header">
+<span class="qa-title">What is the YST screener?</span>
+<span aria-hidden="true" class="qa-ind"></span>
+</button>
+<div class="qa-panel">
+              The York-Simcoe Sex Trafficking Screening Tool (YST) screens for sex trafficking recruitment and exploitation risk. Using which, it provides immediate results to support safety and next steps. The tool informs but does not replace judgement by AHT professionals. 
+            </div>
+</div>
+<div aria-expanded="false" class="qa">
+<button aria-expanded="false" class="qa-header">
+<span class="qa-title">Why is the YST unique?</span>
+<span aria-hidden="true" class="qa-ind"></span>
+</button>
+<div class="qa-panel">
+              The YST screens for sex trafficking risk across two subscales. <b>Recruitment warning signs</b> indicate your youth is more susceptible to being lured and/or recruited. <b>Exploitation warning signs</b> indicate the possibility of active involvement.
+            </div>
+</div>
+</div>
+<!-- Tab: Who -->
+<div aria-labelledby="tab-who-btn" class="tab-panel" hidden="" id="tab-who" role="tabpanel">
+<div aria-expanded="true" class="qa">
+<button aria-expanded="true" class="qa-header">
+<span class="qa-title">What groups are most vulnerable to sex trafficking?</span>
+<span aria-hidden="true" class="qa-ind"></span>
+</button>
+<div class="qa-panel">
+              High risk groups can include girls and young women, middle adolescents aged 14-17, youth with developmental disabilities, youth with mental health challenges, and LGBTQIA+ youth. <a href="YST 1-Pager Vulnerable Groups Final.pdf" rel="noopener" target="_blank">Learn more here</a>.
+            </div>
+</div>
+<div aria-expanded="false" class="qa">
+<button aria-expanded="false" class="qa-header">
+<span class="qa-title">Do racialized youth face higher risk?</span>
+<span aria-hidden="true" class="qa-ind"></span>
+</button>
+<div class="qa-panel">
+              Yes. Specifically, youth with intersectional identities are vulnerable to sexual exploitation. Indigenous youth and Black youth are especially at risk. <a href="YST 1-Pager - Racial Groups.pdf" rel="noopener" target="_blank">Learn more here</a>. 
+            </div>
+</div>
+</div>
+<!-- Tab: Validation -->
+<div aria-labelledby="tab-validate-btn" class="tab-panel" hidden="" id="tab-validate" role="tabpanel">
+<div aria-expanded="true" class="qa">
+<button aria-expanded="true" class="qa-header">
+<span class="qa-title">Is the YST validated?</span>
+<span aria-hidden="true" class="qa-ind"></span>
+</button>
+<div class="qa-panel">
+              Yes! The YST was developed through a rigorous process combining research evidence and the expertise of child welfare workers. It was then tested with over 600 youth across two Ontario child welfare agencies, at two different time points. This process resulted in a 32-item screener that produces both exploitation and recruitment risk scores.
+            </div>
+</div>
+<div aria-expanded="false" class="qa">
+<button aria-expanded="false" class="qa-header">
+<span class="qa-title">Is the YST reliable?</span>
+<span aria-hidden="true" class="qa-ind"></span>
+</button>
+<div class="qa-panel">
+              Yes! The YST shows strong reliability, when two different child welfare workers completed it for the same youth, they agreed on scores over 80% of the time.
+            </div>
+</div>
+</div>
+<!-- Tab: Security -->
+<div aria-labelledby="tab-secure-btn" class="tab-panel" hidden="" id="tab-secure" role="tabpanel">
+<div aria-expanded="true" class="qa">
+<button aria-expanded="true" class="qa-header">
+<span class="qa-title">Does the tool store data?</span>
+<span aria-hidden="true" class="qa-ind"></span>
+</button>
+<div class="qa-panel">
+              No data is stored at any point using the YST. All screening is done locally, client-side. You may export a local PDF per your agency's guidelines.
+            </div>
+</div>
+<div aria-expanded="false" class="qa">
+<button aria-expanded="false" class="qa-header">
+<span class="qa-title">Do I need to login?</span>
+<span aria-hidden="true" class="qa-ind"></span>
+</button>
+<div class="qa-panel">
+             The YST does not require (nor allow) logins to ensure all data is anonymous and untracked.
+            </div>
+</div>
+</div>
+<div class="card" style="margin-top:22px; background:#fff; border:1px solid var(--line); border-radius:20px; padding:22px; box-shadow:0 10px 28px rgba(0,0,0,.05);">
+<h3 style="margin:.2rem 0 .4rem; font:600 20px/1.2 'IBM Plex Sans'">Still have questions?</h3>
+<p class="small" style="color:#5f5a56; margin:0 0 14px">Contact the researchers and we will try our best to answer any questions to get you using the YST.</p>
+<a class="btn-primary" href="#contact" style="display:inline-flex; align-items:center; justify-content:center">Contact us</a>
+</div>
+</div>
+</div>
+</section>
+<section class="wrap resources" id="resources">
+<div id="read"></div><div id="read2"></div><div id="quick"></div>
+<h2>Explore our resources</h2>
+<div class="card-row">
+<!-- What is the YST -->
+<article class="res-card">
+<div class="res-media" style="background: var(--teal);"></div>
+<div class="res-body">
+<div class="res-title">What is the YST?</div>
+<div class="res-cta"><a href="YST 1-Pager - What is the YST.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article>
+<!-- Results: what to do -->
+<article class="res-card">
+<div class="res-media" style="background: var(--yu-red);"></div>
+<div class="res-body">
+<div class="res-title">What to Do with Results</div>
+<div class="res-cta"><a href="YST 1-Pager Results.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article>
+<!-- Case studies -->
+<article class="res-card">
+<div class="res-media" style="background: #3A4A51;"></div>
+<div class="res-body">
+<div class="res-title">Case Studies: High‑Risk Youth</div>
+<div class="res-cta"><a href="YST 1-Pager Case Study.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article>
+<!-- Racialized youth -->
+<article class="res-card">
+<div class="res-media" style="background: #8FD0D1;"></div>
+<div class="res-body">
+<div class="res-title">Racialized Youth: Elevated Risk</div>
+<div class="res-cta"><a href="YST 1-Pager - Racial Groups.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article>
+<article class="res-card"><div class="res-media" style="background: var(--teal-dark);"></div><div class="res-body"><div class="res-title">Child Welfare &amp; Research Partnership</div><div class="res-cta"><a aria-disabled="true" href="#">Coming soon</a></div></div></article><article class="res-card"><div class="res-media" style="background: var(--yu-red-soft);"></div><div class="res-body"><div class="res-title">The Development of the YST</div><div class="res-cta"><a aria-disabled="true" href="#">Coming soon</a></div></div></article><article class="res-card"><div class="res-media" style="background: var(--ink-2);"></div><div class="res-body"><div class="res-title">Contributors</div><div class="res-cta"><a aria-disabled="true" href="#">Coming soon</a></div></div></article><article class="res-card"><div class="res-media" style="background: var(--teal);"></div><div class="res-body"><div class="res-title">References</div><div class="res-cta"><a aria-disabled="true" href="#">Coming soon</a></div></div></article></div>
+<div class="card-row">
+<!-- Vulnerable groups -->
+<article class="res-card">
+<div class="res-media" style="background: #0B66C1;"></div>
+<div class="res-body">
+<div class="res-title">High‑Risk Groups in Child Welfare</div>
+<div class="res-cta"><a href="YST 1-Pager Vulnerable Groups Final.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article>
+<!-- Judgements -->
+<article class="res-card">
+<div class="res-media" style="background: #f0b429;"></div>
+<div class="res-body">
+<div class="res-title">Judgement Challenges &amp; How YST Helps</div>
+<div class="res-cta"><a href="YST 1-Pager Judgements.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article>
+<!-- Sex Trafficking & Child Welfare -->
+<article class="res-card">
+<div class="res-media" style="background: #111;"></div>
+<div class="res-body">
+<div class="res-title">Sex Trafficking &amp; Child Welfare</div>
+<div class="res-cta"><a href="YST 1-Pager - ST and CW.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article>
+<!-- DMST -->
+<article class="res-card">
+<div class="res-media" style="background: #6A6662;"></div>
+<div class="res-body">
+<div class="res-title">Domestic Minor Sex Trafficking (DMST)</div>
+<div class="res-cta"><a href="YST 1-Pager - DMST.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article>
+</div>
+</section>
+<footer></footer>
+<script>
+    // Reveal on scroll for HOW timeline
+    (function(){
+      const items = document.querySelectorAll('.how2 .reveal');
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+      }, {threshold: 0.15});
+      items.forEach(el=>obs.observe(el));
+    })();
+
+    // FAQ pills tabs
+    const pills = Array.from(document.querySelectorAll('.pill'));
+    const panels = {
+      'tab-how-btn': document.getElementById('tab-how'),
+      'tab-who-btn': document.getElementById('tab-who'),
+      'tab-validate-btn': document.getElementById('tab-validate'),
+      'tab-secure-btn': document.getElementById('tab-secure')
+    };
+    function activateTab(btn){
+      pills.forEach(p => {
+        const isActive = p === btn;
+        p.classList.toggle('is-active', isActive);
+        p.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        const panel = panels[p.id];
+        if(panel) panel.hidden = !isActive;
+      });
+      const panel = panels[btn.id];
+      if(panel) initAccordions(panel);
+    }
+    pills.forEach(btn => btn.addEventListener('click', () => activateTab(btn)));
+    activateTab(document.getElementById('tab-how-btn'));
+
+    function initAccordions(root){
+      root.querySelectorAll('.qa').forEach((qa, i)=>{
+        const header = qa.querySelector('.qa-header');
+        const panel = qa.querySelector('.qa-panel');
+        const open = false;
+        qa.setAttribute('aria-expanded', open);
+        header.setAttribute('aria-expanded', open);
+        panel.style.display = open ? 'block' : 'none';
+        header.onclick = ()=>{
+          const now = qa.getAttribute('aria-expanded') === 'true';
+          qa.setAttribute('aria-expanded', !now);
+          header.setAttribute('aria-expanded', !now);
+          panel.style.display = !now ? 'block' : 'none';
+        };
+      });
+    }
+    initAccordions(document.getElementById('tab-how'));
+  </script>
+<script>
+(function(){
+  // Use event delegation to avoid timing issues
+  function ready(fn){ if(document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+  ready(function(){
+    var btn = document.getElementById('toggle-resources');
+    var group = document.querySelector('section#resources .card-row.more-resources');
+    if(!btn || !group) return;
+    // Ensure hidden initially
+    group.setAttribute('hidden','');
+    btn.setAttribute('aria-expanded','false');
+    btn.addEventListener('click', function(){
+      var isHidden = group.hasAttribute('hidden');
+      if(isHidden){
+        group.removeAttribute('hidden');
+        btn.textContent = 'Show fewer resources';
+        btn.setAttribute('aria-expanded','true');
+      }else{
+        group.setAttribute('hidden','');
+        btn.textContent = 'Show all resources (12)';
+        btn.setAttribute('aria-expanded','false');
+        btn.scrollIntoView({behavior:'smooth', block:'nearest'});
+      }
+    }, {passive:true});
+  });
+})();
+</script>
+</body>
+</html>
