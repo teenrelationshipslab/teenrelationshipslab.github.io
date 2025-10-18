@@ -362,6 +362,53 @@ section#resources .card-row + .card-row{margin-top:22px}
   .hero-media{ display:none !important; }
 }
 
+
+
+/* Footer */
+.site-footer{
+  border-top:1px solid var(--line);
+  margin-top:64px;
+  padding:18px 0 24px;
+  text-align:center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.03), rgba(0,0,0,0));
+}
+.site-footer p{
+  margin:0;
+  color: var(--muted);
+  font: 400 14px/1.4 "IBM Plex Sans", sans-serif;
+}
+.site-footer p + p{ margin-top:6px; }
+
+
+
+/* --- Footer spacing tweaks (desktop + mobile) --- */
+section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
+.site-footer{ margin-top: 24px; padding: 12px 0 18px; } /* smaller, consistent gap */
+/* Mobile: keep a bit more breathing room but still tight */
+@media (max-width: 540px){
+  .site-footer{ margin-top: 18px; padding: 12px 0 16px; }
+  section#resources{ padding-bottom: 12px; }
+}
+
+
+
+/* --- Mobile spacing refinements for resources + footer --- */
+@media (max-width: 540px){
+  section#resources{
+    padding-top: 8px;   /* reduce top whitespace before heading */
+    padding-bottom: 10px;
+  }
+  section#resources h2{
+    margin: 10px 0 14px; /* tighter, but still clear */
+  }
+  .site-footer{
+    margin-top: 20px; 
+    padding: 12px 0 calc(28px + env(safe-area-inset-bottom)); /* add safe bottom padding */
+  }
+}
+/* Desktop+ bottom breathing room so footer isn't glued to edge */
+.site-footer{ padding-bottom: calc(22px + env(safe-area-inset-bottom)); }
+
 </style>
 </head>
 <body>
@@ -565,74 +612,65 @@ section#resources .card-row + .card-row{margin-top:22px}
 <h2>Explore our resources</h2>
 <div class="card-row">
 <!-- What is the YST -->
+<!-- Results: what to do -->
+<!-- Case studies -->
+<!-- Racialized youth -->
 <article class="res-card">
-<div class="res-media" style="background: var(--teal);"></div>
+<div class="res-media" style="background: var(--teal); background-image: url('what-is-yst.jpg'); background-size: cover; background-position: center;"></div>
 <div class="res-body">
 <div class="res-title">What is the YST?</div>
 <div class="res-cta"><a href="YST 1-Pager - What is the YST.pdf" rel="noopener" target="_blank">Open PDF</a></div>
 </div>
-</article>
-<!-- Results: what to do -->
-<article class="res-card">
+</article><article class="res-card">
 <div class="res-media" style="background: var(--yu-red);"></div>
-<div class="res-body">
-<div class="res-title">What to Do with Results</div>
-<div class="res-cta"><a href="YST 1-Pager Results.pdf" rel="noopener" target="_blank">Open PDF</a></div>
-</div>
-</article>
-<!-- Case studies -->
-<article class="res-card">
-<div class="res-media" style="background: #3A4A51;"></div>
-<div class="res-body">
-<div class="res-title">Case Studies: High‑Risk Youth</div>
-<div class="res-cta"><a href="YST 1-Pager Case Study.pdf" rel="noopener" target="_blank">Open PDF</a></div>
-</div>
-</article>
-<!-- Racialized youth -->
-<article class="res-card">
-<div class="res-media" style="background: #8FD0D1;"></div>
-<div class="res-body">
-<div class="res-title">Racialized Youth: Elevated Risk</div>
-<div class="res-cta"><a href="YST 1-Pager - Racial Groups.pdf" rel="noopener" target="_blank">Open PDF</a></div>
-</div>
-</article>
-<article class="res-card"><div class="res-media" style="background: var(--teal-dark);"></div><div class="res-body"><div class="res-title">Child Welfare &amp; Research Partnership</div><div class="res-cta"><a aria-disabled="true" href="#">Coming soon</a></div></div></article><article class="res-card"><div class="res-media" style="background: var(--yu-red-soft);"></div><div class="res-body"><div class="res-title">The Development of the YST</div><div class="res-cta"><a aria-disabled="true" href="#">Coming soon</a></div></div></article><article class="res-card"><div class="res-media" style="background: var(--ink-2);"></div><div class="res-body"><div class="res-title">Contributors</div><div class="res-cta"><a aria-disabled="true" href="#">Coming soon</a></div></div></article><article class="res-card"><div class="res-media" style="background: var(--teal);"></div><div class="res-body"><div class="res-title">References</div><div class="res-cta"><a aria-disabled="true" href="#">Coming soon</a></div></div></article></div>
-<div class="card-row">
-<!-- Vulnerable groups -->
-<article class="res-card">
-<div class="res-media" style="background: #0B66C1;"></div>
 <div class="res-body">
 <div class="res-title">High‑Risk Groups in Child Welfare</div>
 <div class="res-cta"><a href="YST 1-Pager Vulnerable Groups Final.pdf" rel="noopener" target="_blank">Open PDF</a></div>
 </div>
-</article>
-<!-- Judgements -->
-<article class="res-card">
-<div class="res-media" style="background: #f0b429;"></div>
+</article><article class="res-card">
+<div class="res-media" style="background: var(--yu-red); background-image: url('results.jpg'); background-size: cover; background-position: center;"></div>
+<div class="res-body">
+<div class="res-title">What to Do with Results</div>
+<div class="res-cta"><a href="YST 1-Pager Results.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article><article class="res-card">
+<div class="res-media" style="background: var(--teal);"></div>
+<div class="res-body">
+<div class="res-title">Racialized Youth: Elevated Risk</div>
+<div class="res-cta"><a href="YST 1-Pager - Racial Groups.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article><article class="res-card"><div class="res-media" style="background: var(--yu-red-soft); background-image: url('development.jpg'); background-size: cover; background-position: center;"></div><div class="res-body"><div class="res-title">The Development of the YST</div><div class="res-cta"><a href="YST 1-Pager - Development.pdf" rel="noopener" target="_blank">Open PDF</a></div></div></article><article class="res-card">
+<div class="res-media" style="background: var(--yu-red); background-image: url('case-study.jpg'); background-size: cover; background-position: center;"></div>
+<div class="res-body">
+<div class="res-title">Case Studies: High‑Risk Youth</div>
+<div class="res-cta"><a href="YST 1-Pager Case Study.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article><article class="res-card">
+<div class="res-media" style="background: var(--teal-dark);"></div>
 <div class="res-body">
 <div class="res-title">Judgement Challenges &amp; How YST Helps</div>
 <div class="res-cta"><a href="YST 1-Pager Judgements.pdf" rel="noopener" target="_blank">Open PDF</a></div>
 </div>
-</article>
-<!-- Sex Trafficking & Child Welfare -->
-<article class="res-card">
-<div class="res-media" style="background: #111;"></div>
-<div class="res-body">
-<div class="res-title">Sex Trafficking &amp; Child Welfare</div>
-<div class="res-cta"><a href="YST 1-Pager - ST and CW.pdf" rel="noopener" target="_blank">Open PDF</a></div>
-</div>
-</article>
-<!-- DMST -->
-<article class="res-card">
-<div class="res-media" style="background: #6A6662;"></div>
+</article><article class="res-card"><div class="res-media" style="background: var(--teal-dark); background-image: url('research-partnership.jpg'); background-size: cover; background-position: center;"></div><div class="res-body"><div class="res-title">Child Welfare &amp; Research Partnership</div><div class="res-cta"><a href="YST 1-Pager - Timeline.pdf" rel="noopener" target="_blank">Open PDF</a></div></div></article><article class="res-card">
+<div class="res-media" style="background: var(--ink-2);"></div>
 <div class="res-body">
 <div class="res-title">Domestic Minor Sex Trafficking (DMST)</div>
 <div class="res-cta"><a href="YST 1-Pager - DMST.pdf" rel="noopener" target="_blank">Open PDF</a></div>
 </div>
-</article>
+</article><article class="res-card">
+<div class="res-media" style="background: var(--yu-red); background-image: url('sex-trafficking.jpg'); background-size: cover; background-position: center;"></div>
+<div class="res-body">
+<div class="res-title">Sex Trafficking &amp; Child Welfare</div>
+<div class="res-cta"><a href="YST 1-Pager - ST and CW.pdf" rel="noopener" target="_blank">Open PDF</a></div>
+</div>
+</article><article class="res-card"><div class="res-media" style="background: var(--ink-2); background-image: url('how-to-use.jpg'); background-size: cover; background-position: center;"></div><div class="res-body"><div class="res-title">How to use the YST</div><div class="res-cta"><a href="YST 1-Pager - How to use .pdf" rel="noopener" target="_blank">Open PDF</a></div></div></article><article class="res-card"><div class="res-media" style="background: var(--ink); background-size: cover; background-position: center;"></div><div class="res-body"><div class="res-title">References</div><div class="res-cta"><a href="YST 1-Pager - References.pdf" rel="noopener" target="_blank">Open PDF</a></div></div></article></div>
+<div class="card-row">
+<!-- Vulnerable groups -->
+<!-- Judgements -->
+<!-- Sex Trafficking & Child Welfare -->
+<!-- DMST -->
 </div>
 </section>
-<footer></footer>
 <script>
     // Reveal on scroll for HOW timeline
     (function(){
@@ -710,5 +748,5 @@ section#resources .card-row + .card-row{margin-top:22px}
   });
 })();
 </script>
-</body>
+<footer class="site-footer"><p>Developed by the Teen Relationships Lab at York University in partnership with York Region CAS and Simcoe-Muskoka Family Connexions.</p><p>© 2025 Teen Relationships Lab, York University. No distribution of this tool outside your agency.</p></footer></body>
 </html>
