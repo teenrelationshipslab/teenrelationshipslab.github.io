@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -19,18 +18,14 @@
       --cream:#f0f0f0;
       --line:#E9E3DE;
       --panel:#FFFFFF;
-
       --fs-hero:clamp(40px, 3vw + 28px, 64px);
       --fs-h2:clamp(28px, 1.2vw + 20px, 40px);
       --fs-h3:20px;
       --fs-body:16px;
-
       --s-1:8px; --s-2:12px; --s-3:16px; --s-4:20px; --s-5:24px;
       --s-6:28px; --s-7:32px; --s-8:40px; --s-9:48px; --s-10:56px; --s-11:64px; --s-12:80px;
-
       --container: min(1120px, 92vw);
       --shadow:0 12px 30px rgba(0,0,0,.10);
-    
       --radius-lg:20px;
       --radius-md:12px;
       --radius-sm:8px;
@@ -38,7 +33,6 @@
       --shadow-md:0 10px 30px rgba(0,0,0,.12);
       --yu-red-soft:#F04C5A;
     }
-    
     html{scroll-behavior:smooth}
     /* Anchor offset so sticky header doesn't cover targets */
     section[id], [data-anchor] {scroll-margin-top: 96px}
@@ -46,10 +40,8 @@
     body{margin:0; font:400 var(--fs-body)/1.55 "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; color:var(--ink); background:#fff;}
     a{color:#0B6F76; text-decoration:none} a:hover{text-decoration:underline}
     .wrap{width:var(--container); margin:0 auto; padding:0 var(--s-7);}
-
     /* Header */
     .topbar{height:84px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); background:#fff; position:sticky; top:0; z-index:5}
-
 /* Improved logo styling */
 .topbar .logo{
   text-decoration:none;
@@ -57,16 +49,13 @@
   display:flex;
   align-items:center;
   gap:.5rem;
-  
   font-size:clamp(16px,2vw,20px);
   white-space:nowrap;
 }
 .topbar .logo .sep{opacity:.45}
 .topbar .logo .brand{}
-
     .logo img{height:40px; display:block}
-    nav{display:flex; gap:32px; font-size:15px} nav a{color:#353232}
-
+    nav{display:flex; gap:32px; font-size:17px; font-weight:600} nav a{color:#353232}
     /* Hero */
     .hero{display:grid; grid-template-columns: 560px 1fr; gap:var(--s-10); align-items:center; padding: var(--s-10) 0 var(--s-10); background:#fff}
     .eyebrow{font:600 20px/1 "IBM Plex Sans",sans-serif; color:var(--yu-red); margin-bottom:var(--s-2)}
@@ -79,14 +68,11 @@
     .hero-img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius: var(--radius-lg); display:block; filter:brightness(.7);}
     .callout{position:absolute; left:-30px; top: auto; bottom: 40px; width:300px; background: var(--teal); color: var(--ink); border-radius: var(--radius-lg); padding: 14px; box-shadow: var(--shadow-md); font-size:15px; line-height:1.35;}
     .callout b{display:block; margin-bottom:6px}
-
     /* Trust bar */
     .trust{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#f0f0f0;}
     .trust .row{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px 28px; padding:14px 0; font-size:.98rem; color:#3a3735}
     .metric{display:flex; align-items:center; gap:10px}
     .metric svg{width:20px; height:20px; flex:0 0 20px}
-
-    
 /* HOW: three-tile row */
 #how.how2{background:#2F3E46; color:#fff; padding:64px 0 72px}
 #how.how2 h2{
@@ -108,14 +94,13 @@
   .tiles{flex-wrap:wrap}
   .tile-dark{width:100% border-radius:var(--radius-lg);}
 }
-
     /* FAQ */
     .faq-section{background:var(--cream); padding: var(--s-12) 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
     .faq-grid{display:grid; grid-template-columns: 1fr 1fr; gap:var(--s-10); align-items:start;}
     .faq-left h2{font:700 var(--fs-h2)/1.06 "IBM Plex Serif",Georgia,serif; margin:0 0 var(--s-4);}
     .faq-left p{color:var(--muted); margin:0 0 var(--s-5)}
     .pills{display:grid; grid-template-columns:1fr 1fr; gap:14px; align-content:start; padding-top:8px}
-    .pill{appearance:none; -webkit-appearance:none; border:1px solid var(--line); background:#fff;padding:14px 18px; border-radius:16px; min-height:52px;font:500 16px/1.2 "IBM Plex Sans"; color:var(--ink-2); text-align:center; cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.04); transition:background .2s, color .2s, border-color .2s, box-shadow .2s, transform .02s border-radius:var(--radius-lg);}
+    .pill{appearance:none; -webkit-appearance:none; border:1px solid var(--line); background:#fff;padding:16px 20px; border-radius:16px; min-height:58px;font:600 18px/1.2 "IBM Plex Sans"; color:var(--ink-2); text-align:center; cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.04); transition:background .2s, color .2s, border-color .2s, box-shadow .2s, transform .02s border-radius:var(--radius-lg);}
     .pill.is-active{background: #111; color:#fff; border-color: #111; box-shadow:0 6px 16px rgba(17,17,17,.2)}
     .qa{border-top:1px solid var(--line)}
     .qa:first-child{border-top:none}
@@ -123,7 +108,6 @@
     .qa-title{margin:0; font:500 var(--fs-h3)/1.2 "IBM Plex Sans"}
     .qa-ind::after{content:"+"} .qa[aria-expanded="true"] .qa-ind::after{content:"–"}
     .qa-panel{display:none; color:var(--muted); padding:0 0 16px 0 border-radius:var(--radius-lg);} .qa[aria-expanded="true"] .qa-panel{display:block border-radius:var(--radius-lg);}
-
     /* Resources */
     .resources{padding: var(--s-12) 0; background:#fff}
     .resources h2{font:700 var(--fs-h2)/1.06 "IBM Plex Serif", Georgia, serif; margin:0 0 var(--s-6);}
@@ -133,9 +117,7 @@
     .res-body{padding:14px 16px 18px; display:flex; flex-direction:column; gap:10px}
     .res-title{font:600 var(--fs-body)/1.25 "IBM Plex Sans", sans-serif}
     .res-cta{margin-top:auto} .res-cta a{display:inline-block; background:#f0f0f0; padding:10px 12px; border-radius:12px}
-
     footer{height:80px; background:#fff}
-
     /* Responsive */
     @media (max-width: 1100px){
       .hero{grid-template-columns:1fr; gap:var(--s-8)}
@@ -150,7 +132,6 @@
       .pills{display:grid; grid-template-columns:1fr 1fr; gap:14px; align-content:start; padding-top:8px}
       .card-row{grid-template-columns:1fr}
     }
-  
 /* === Mobile hero fixes (non-desktop; preserves desktop layout) === */
 @media (max-width: 1100px){
   /* Center hero content on mobile */
@@ -161,10 +142,8 @@
     align-items:center;
   }
   .subtitle{max-width:unset}
-
   /* Ensure comfortable top/bottom spacing on mobile */
   .hero{padding: var(--s-11) 0 var(--s-11)}
-
   /* Keep the teal callout overlayed on the image and sized nicely */
   .hero-media{position:relative}
   .callout{
@@ -177,52 +156,42 @@
     margin-top:0; /* override previous mobile static layout */
   }
 }
-
 /* Tighter phones: a bit more breathing room */
 @media (max-width: 560px){
   .hero{padding: var(--s-12) 0 var(--s-12)}
   .title{word-break:break-word}
   .btn-primary{min-width:0; width:100%}
 }
-
-  
 .topbar .logo .brand{
   color:#353232;
   font-size:15px;
   font-family:"IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight:400;
 }
-
 @media (max-width: 768px){
   .topbar nav{display:none;}
   .topbar{
     justify-content:center;
   }
 }
-
 .pill:hover{border-color:#f0f0f0; box-shadow:0 2px 6px rgba(0,0,0,.06)}
 .pill:focus-visible{outline:2px solid var(--yu-red); outline-offset:2px}
 .pill:active{transform:translateY(1px)}
 @media (max-width: 740px){
   .pills{grid-template-columns:1fr}
 }
-
 .tile, .tile-dark, .cta-card{ box-shadow: var(--shadow-sm); transition: box-shadow .2s, transform .02s }
 .tile:hover, .tile-dark:hover, .cta-card:hover{ box-shadow: var(--shadow-md) }
-
 p{ line-height:1.75 }
 h2{ font-weight:600 }
 h3{ font-weight:600 }
-
 a, button{ transition: color .2s ease, background .2s ease, border-color .2s ease, transform .02s }
 .tile:hover{ transform: translateY(-1px) }
-
 @media (max-width: 740px){
   .wrap.hero{ grid-template-columns:1fr; gap: var(--s-6); align-items:start }
   .hero-media{ order: 2 }
   .hero-img{ width:100%; border-radius:14px; aspect-ratio:auto; filter:brightness(.8) }
 }
-
 /* Expandable resources */
 .res-actions{display:flex; justify-content:center; margin-top:24px}
 .btn-outline{
@@ -242,18 +211,13 @@ a, button{ transition: color .2s ease, background .2s ease, border-color .2s eas
 @media (max-width: 540px){
   .card-row{grid-template-columns: 1fr}
 }
-
 [hidden]{display:none !important}
-
 /* Resources grid spacing consistency */
 section#resources .card-row{gap:22px; margin-top:16px}
 section#resources .card-row + .card-row{margin-top:22px}
 .res-actions{display:flex; justify-content:center; margin-top:24px}
-
 [hidden]{display:none !important}
-
 /* Linked hero callout tile */
-
 .callout.callout-link:hover{ box-shadow: var(--shadow-md); transform: translateY(-1px) }
 .callout-cta{
   margin-top:14px;
@@ -268,7 +232,6 @@ section#resources .card-row + .card-row{margin-top:22px}
 }
 .callout-cta:hover{ background:#146b6e; box-shadow: var(--shadow-sm) }
 .callout-cta:active{ transform: translateY(1px) }
-
 /* Linked hero callout tile — refined to match site tokens */
 .callout.callout-link{
   display:block;
@@ -292,13 +255,11 @@ section#resources .card-row + .card-row{margin-top:22px}
   transition: background .2s ease, box-shadow .2s ease;
 }
 .callout-cta:hover{ background:#146b6e; box-shadow: var(--shadow-sm) }
-
 .callout-content{display:flex; flex-direction:column; gap:12px}
 .callout-title b{display:block; font-weight:700; margin:0}
 .callout-text{color:var(--ink-2)}
 .callout-btn{display:inline-flex; align-items:center; justify-content:center; margin-top:4px}
 .callout.callout-link:hover{box-shadow: var(--shadow-md)}
-
 /* Hero teal callout: unified sentence + teal CTA */
 .callout-content{display:flex; flex-direction:column; gap:10px}
 .callout-line{margin:0; font:400 16px/1.35 "IBM Plex Sans"; color:var(--ink)}
@@ -312,7 +273,6 @@ section#resources .card-row + .card-row{margin-top:22px}
 }
 .btn-teal:hover{ background:#146b6e; box-shadow: var(--shadow-sm) }
 .btn-teal:active{ transform: translateY(1px) }
-
 /* Hero teal callout styled like the 'Contact us' card (same behavior, teal scheme, refined) */
 .callout.callout-card {
   background: var(--teal);
@@ -330,8 +290,6 @@ section#resources .card-row + .card-row{margin-top:22px}
 }
 .callout.callout-card .callout-line { margin: 0 0 10px 0 }
 .callout.callout-card .btn-teal { display: inline-flex }
-
-
 /* --- Mobile/touch: neutralize hover/active to prevent jump --- */
 @media (hover:none), (pointer:coarse) {
   .callout.callout-card,
@@ -355,15 +313,10 @@ section#resources .card-row + .card-row{margin-top:22px}
 }
 /* Extra safety: override any global hover lift for callouts on desktop too */
 .callout.callout-card:hover { transform: none !important; }
-
-
 /* Hide hero image & turquoise callout on mobile only */
 @media (max-width: 768px){
   .hero-media{ display:none !important; }
 }
-
-
-
 /* Footer */
 .site-footer{
   border-top:1px solid var(--line);
@@ -378,9 +331,6 @@ section#resources .card-row + .card-row{margin-top:22px}
   font: 400 14px/1.4 "IBM Plex Sans", sans-serif;
 }
 .site-footer p + p{ margin-top:6px; }
-
-
-
 /* --- Footer spacing tweaks (desktop + mobile) --- */
 section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 .site-footer{ margin-top: 24px; padding: 12px 0 18px; } /* smaller, consistent gap */
@@ -389,9 +339,6 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
   .site-footer{ margin-top: 18px; padding: 12px 0 16px; }
   section#resources{ padding-bottom: 12px; }
 }
-
-
-
 /* --- Mobile spacing refinements for resources + footer --- */
 @media (max-width: 540px){
   section#resources{
@@ -408,7 +355,6 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 }
 /* Desktop+ bottom breathing room so footer isn't glued to edge */
 .site-footer{ padding-bottom: calc(22px + env(safe-area-inset-bottom)); }
-
 </style>
 </head>
 <body>
@@ -418,12 +364,12 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 <nav>
 <a href="#how">How this tool works</a>
 <a href="#faq">FAQ</a>
-<a href="#resources">Resources</a>
+<a href="#resources">Info Sheets</a>
 </nav>
 </header>
 <main class="wrap hero">
 <section>
-<div class="eyebrow">York Simcoe</div>
+<div class="eyebrow">York-Simcoe</div>
 <h1 class="title">Sex Trafficking<br/>Screener (YST)</h1>
 <p class="subtitle">A quick online tool to screen for youth sex trafficking risk.</p>
 <div class="cta-card">
@@ -433,10 +379,9 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 </section>
 <section aria-label="Illustrative image" class="hero-media">
 <img alt="Silhouetted person in a dark room" class="hero-img" src="hero.jpg"/>
-<div aria-label="Learn more about domestic minor sex trafficking" class="callout callout-card" role="group"> <div class="callout-content"> <p class="callout-line">Workers in child welfare are often unsure if their youth were involved in sex trafficking.</p> <a class="btn-teal callout-btn" href="YST 1-Pager Judgements.pdf" rel="noopener" target="_blank">How we help</a> </div></div>
+<div aria-label="Learn more about domestic minor sex trafficking" class="callout callout-card" role="group"> <div class="callout-content"> <p class="callout-line">Professionals can be unsure if their youth were involved in sex trafficking.</p> <a class="btn-teal callout-btn" href="YST 1-Pager Judgements.pdf" rel="noopener" target="_blank">How we help</a> </div></div>
 </section>
 </main>
-<!-- Trust / privacy bar -->
 <section class="trust">
 <div class="wrap row">
 <div class="metric">
@@ -457,8 +402,6 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 </div>
 </div>
 </section>
-<!-- NEW: How this tool works -->
-<!-- HOW: compact three-tile row -->
 <section class="how2" id="how">
 <div class="wrap">
 <h2>How the YST works</h2>
@@ -515,7 +458,6 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 </div>
 </div>
 <div class="faq-right">
-<!-- Tab: What is the tool -->
 <div aria-labelledby="tab-how-btn" class="tab-panel" id="tab-how" role="tabpanel">
 <div aria-expanded="true" class="qa">
 <button aria-expanded="true" class="qa-header">
@@ -536,7 +478,6 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
             </div>
 </div>
 </div>
-<!-- Tab: Who -->
 <div aria-labelledby="tab-who-btn" class="tab-panel" hidden="" id="tab-who" role="tabpanel">
 <div aria-expanded="true" class="qa">
 <button aria-expanded="true" class="qa-header">
@@ -557,7 +498,6 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
             </div>
 </div>
 </div>
-<!-- Tab: Validation -->
 <div aria-labelledby="tab-validate-btn" class="tab-panel" hidden="" id="tab-validate" role="tabpanel">
 <div aria-expanded="true" class="qa">
 <button aria-expanded="true" class="qa-header">
@@ -578,7 +518,6 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
             </div>
 </div>
 </div>
-<!-- Tab: Security -->
 <div aria-labelledby="tab-secure-btn" class="tab-panel" hidden="" id="tab-secure" role="tabpanel">
 <div aria-expanded="true" class="qa">
 <button aria-expanded="true" class="qa-header">
@@ -609,12 +548,8 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 </section>
 <section class="wrap resources" id="resources">
 <div id="read"></div><div id="read2"></div><div id="quick"></div>
-<h2>Explore our resources</h2>
+<h2>Info Sheets</h2>
 <div class="card-row">
-<!-- What is the YST -->
-<!-- Results: what to do -->
-<!-- Case studies -->
-<!-- Racialized youth -->
 <article class="res-card">
 <div class="res-media" style="background: var(--teal); background-image: url('what-is-yst.jpg'); background-size: cover; background-position: center;"></div>
 <div class="res-body">
@@ -622,7 +557,7 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 <div class="res-cta"><a href="YST 1-Pager - What is the YST.pdf" rel="noopener" target="_blank">Open PDF</a></div>
 </div>
 </article><article class="res-card">
-<div class="res-media" style="background: var(--yu-red);"></div>
+<div class="res-media" style="background: var(--yu-red); background-image: url('high-risk.jpg'); background-size: cover; background-position: center;"></div>
 <div class="res-body">
 <div class="res-title">High‑Risk Groups in Child Welfare</div>
 <div class="res-cta"><a href="YST 1-Pager Vulnerable Groups Final.pdf" rel="noopener" target="_blank">Open PDF</a></div>
@@ -634,7 +569,7 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 <div class="res-cta"><a href="YST 1-Pager Results.pdf" rel="noopener" target="_blank">Open PDF</a></div>
 </div>
 </article><article class="res-card">
-<div class="res-media" style="background: var(--teal);"></div>
+<div class="res-media" style="background: var(--teal); background-image: url('racialized-youth.jpg'); background-size: cover; background-position: center;"></div>
 <div class="res-body">
 <div class="res-title">Racialized Youth: Elevated Risk</div>
 <div class="res-cta"><a href="YST 1-Pager - Racial Groups.pdf" rel="noopener" target="_blank">Open PDF</a></div>
@@ -646,13 +581,13 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 <div class="res-cta"><a href="YST 1-Pager Case Study.pdf" rel="noopener" target="_blank">Open PDF</a></div>
 </div>
 </article><article class="res-card">
-<div class="res-media" style="background: var(--teal-dark);"></div>
+<div class="res-media" style="background: var(--teal-dark); background-image: url('judgement.jpg'); background-size: cover; background-position: center;"></div>
 <div class="res-body">
 <div class="res-title">Judgement Challenges &amp; How YST Helps</div>
 <div class="res-cta"><a href="YST 1-Pager Judgements.pdf" rel="noopener" target="_blank">Open PDF</a></div>
 </div>
 </article><article class="res-card"><div class="res-media" style="background: var(--teal-dark); background-image: url('research-partnership.jpg'); background-size: cover; background-position: center;"></div><div class="res-body"><div class="res-title">Child Welfare &amp; Research Partnership</div><div class="res-cta"><a href="YST 1-Pager - Timeline.pdf" rel="noopener" target="_blank">Open PDF</a></div></div></article><article class="res-card">
-<div class="res-media" style="background: var(--ink-2);"></div>
+<div class="res-media" style="background: var(--ink-2); background-image: url('dmst.jpg'); background-size: cover; background-position: center;"></div>
 <div class="res-body">
 <div class="res-title">Domestic Minor Sex Trafficking (DMST)</div>
 <div class="res-cta"><a href="YST 1-Pager - DMST.pdf" rel="noopener" target="_blank">Open PDF</a></div>
@@ -663,12 +598,8 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
 <div class="res-title">Sex Trafficking &amp; Child Welfare</div>
 <div class="res-cta"><a href="YST 1-Pager - ST and CW.pdf" rel="noopener" target="_blank">Open PDF</a></div>
 </div>
-</article><article class="res-card"><div class="res-media" style="background: var(--ink-2); background-image: url('how-to-use.jpg'); background-size: cover; background-position: center;"></div><div class="res-body"><div class="res-title">How to use the YST</div><div class="res-cta"><a href="YST 1-Pager - How to use .pdf" rel="noopener" target="_blank">Open PDF</a></div></div></article><article class="res-card"><div class="res-media" style="background: var(--ink); background-size: cover; background-position: center;"></div><div class="res-body"><div class="res-title">References</div><div class="res-cta"><a href="YST 1-Pager - References.pdf" rel="noopener" target="_blank">Open PDF</a></div></div></article></div>
+</article><article class="res-card"><div class="res-media" style="background: var(--ink-2); background-image: url('how-to-use.jpg'); background-size: cover; background-position: center;"></div><div class="res-body"><div class="res-title">How to use the YST</div><div class="res-cta"><a href="YST 1-Pager - How to use .pdf" rel="noopener" target="_blank">Open PDF</a></div></div></article><article class="res-card"><div class="res-media" style="background: var(--ink); background-image: url('references.jpg'); background-size: cover; background-position: center;"></div><div class="res-body"><div class="res-title">References</div><div class="res-cta"><a href="YST 1-Pager - References.pdf" rel="noopener" target="_blank">Open PDF</a></div></div></article></div>
 <div class="card-row">
-<!-- Vulnerable groups -->
-<!-- Judgements -->
-<!-- Sex Trafficking & Child Welfare -->
-<!-- DMST -->
 </div>
 </section>
 <script>
@@ -680,7 +611,6 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
       }, {threshold: 0.15});
       items.forEach(el=>obs.observe(el));
     })();
-
     // FAQ pills tabs
     const pills = Array.from(document.querySelectorAll('.pill'));
     const panels = {
@@ -702,7 +632,6 @@ section#resources{ padding-bottom: 16px; } /* tighten space below the grid */
     }
     pills.forEach(btn => btn.addEventListener('click', () => activateTab(btn)));
     activateTab(document.getElementById('tab-how-btn'));
-
     function initAccordions(root){
       root.querySelectorAll('.qa').forEach((qa, i)=>{
         const header = qa.querySelector('.qa-header');
